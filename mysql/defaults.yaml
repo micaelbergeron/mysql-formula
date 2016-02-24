@@ -131,17 +131,19 @@ RedHat:
         port: 3306
         bind_address: 127.0.0.1
         symbolic_links: 0
+
 Fedora:
   server: mariadb-server
   client: mariadb
   service: mariadb
-  python: MySQL-python
+  dev: mariadb-devel
+  python: python-mysql
   config:
-    file: /etc/my.cnf.d/server.cnf
+    file: /etc/my.cnf.d/mariadb-server.cnf
     sections:
       mysqld_safe:
-        log_error: /var/log/mysqld.log
-        pid-file: /var/run/mysqld/mysqld.pid
+        log_error: /var/log/mariadb/mariadb.log
+        pid-file: /var/run/mariadb/mariadb.pid
       mysqld:
         datadir: /var/lib/mysql
         socket: /var/lib/mysql/mysql.sock
@@ -184,7 +186,6 @@ Arch:
       client:
         port: 3306
         socket: /run/mysqld/mysqld.sock
-
       mysqld:
         datadir: /var/lib/mysql
         socket: /run/mysqld/mysqld.sock
@@ -203,20 +204,16 @@ Arch:
         binlog_format: mixed
         server-id: 1
         skip-external-locking: noarg_present
-
       mysqldump:
         max_allowed_packet: 16M
         quick: noarg_present
-
       mysql:
         no-auto-rehash: noarg_present
-
       myisamchk:
         key_buffer_size: 20M
         sort_buffer_size: 20M
         read_buffer: 2M
         write_buffer: 2M
-
       mysqlhotcopy:
         interactive-timeout: noarg_present
 
