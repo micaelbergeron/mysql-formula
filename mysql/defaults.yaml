@@ -155,6 +155,7 @@ Fedora:
   client: mariadb
   service: mariadb
   python: python-mysql
+  dev: mariadb-devel
   config_directory: /etc/my.cnf.d/
   config:
     file: /etc/my.cnf.d/mariadb-server.cnf
