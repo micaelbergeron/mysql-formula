@@ -154,13 +154,13 @@ Fedora:
   server: mariadb-server
   client: mariadb
   service: mariadb
-  server_config:
-    file: server.cnf
-  dev: mariadb-devel
   python: python-mysql
+  dev: mariadb-devel
   config_directory: /etc/my.cnf.d/
   config:
     file: /etc/my.cnf.d/mariadb-server.cnf
+  server_config:
+    file: server.cnf
     sections:
       mysqld_safe:
         log_error: /var/log/mariadb/mariadb.log
